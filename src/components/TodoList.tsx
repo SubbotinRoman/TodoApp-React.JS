@@ -69,7 +69,7 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
           color="text.secondary"
           sx={{
             opacity: 0.7,
-            fontSize: '1.1rem',
+            fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
           }}
         >
           {filter === 'all' ? 'Нет задач' :
@@ -94,7 +94,13 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
       }}
     >
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-        <Typography variant="h6" component="h2" sx={{ color: 'text.secondary' }}>
+        <Typography 
+          variant="h6"
+          sx={{
+            fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
+            fontWeight: 500,
+          }}
+        >
           {filter === 'all' && 'Все задачи'}
           {filter === 'active' && 'Активные задачи'}
           {filter === 'completed' && 'Выполненные задачи'}
@@ -127,6 +133,14 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                       transform: 'translate(-50%, -50%) scale(1)',
                       opacity: 0.1,
                     },
+                  },
+                  border: 'none',
+                  outline: 'none',
+                  '&:focus': {
+                    outline: 'none',
+                  },
+                  '&.Mui-focusVisible': {
+                    outline: 'none',
                   },
                 }}
               >
@@ -161,6 +175,14 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                       transform: 'translate(-50%, -50%) scale(1)',
                       opacity: 0.1,
                     },
+                  },
+                  border: 'none',
+                  outline: 'none',
+                  '&:focus': {
+                    outline: 'none',
+                  },
+                  '&.Mui-focusVisible': {
+                    outline: 'none',
                   },
                 }}
               >
@@ -221,8 +243,8 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                   '&:hover': {
                     bgcolor: 'rgba(0, 0, 0, 0.02)',
                   },
-                  py: 1.5,
-                  px: 2,
+                  py: 'clamp(0.5rem, 2vw, 1rem)',
+                  px: 'clamp(1rem, 3vw, 2rem)',
                   width: '100%',
                   display: 'flex',
                   alignItems: 'flex-start',
@@ -232,8 +254,8 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                 <Box
                   sx={{
                     position: 'relative',
-                    width: 34,
-                    height: 34,
+                    width: 'clamp(24px, 5vw, 34px)',
+                    height: 'clamp(24px, 5vw, 34px)',
                     mt: '2px',
                   }}
                 >
@@ -252,7 +274,7 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                         color: 'primary.main',
                       },
                       '& .MuiSvgIcon-root': {
-                        fontSize: '1.3rem',
+                        fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)',
                       },
                       '&::before': {
                         content: '""',
@@ -294,6 +316,8 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                           size="small"
                           sx={{
                             '& .MuiOutlinedInput-root': {
+                              fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
+                              height: 'clamp(32px, 6vw, 40px)',
                               borderRadius: 2,
                               backgroundColor: 'rgba(255, 255, 255, 0.8)',
                               transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -314,6 +338,7 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                     ) : (
                       <Typography
                         sx={{
+                          fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
                           textDecoration: todo.completed ? 'line-through' : 'none',
                           color: todo.completed ? 'text.secondary' : 'text.primary',
                         }}
@@ -332,7 +357,17 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                             onClick={handleSaveEdit}
                             sx={{
                               position: 'relative',
+                              width: 'clamp(32px, 6vw, 40px)',
+                              height: 'clamp(32px, 6vw, 40px)',
                               color: 'success.main',
+                              border: 'none',
+                              outline: 'none',
+                              '&:focus': {
+                                outline: 'none',
+                              },
+                              '&.Mui-focusVisible': {
+                                outline: 'none',
+                              },
                               '&::before': {
                                 content: '""',
                                 position: 'absolute',
@@ -356,7 +391,7 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                               },
                             }}
                           >
-                            <CheckIcon />
+                            <CheckIcon sx={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)' }} />
                           </IconButton>
                         </Tooltip>
                       </motion.div>
@@ -366,7 +401,17 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                             onClick={handleCancelEdit}
                             sx={{
                               position: 'relative',
+                              width: 'clamp(32px, 6vw, 40px)',
+                              height: 'clamp(32px, 6vw, 40px)',
                               color: 'error.light',
+                              border: 'none',
+                              outline: 'none',
+                              '&:focus': {
+                                outline: 'none',
+                              },
+                              '&.Mui-focusVisible': {
+                                outline: 'none',
+                              },
                               '&::before': {
                                 content: '""',
                                 position: 'absolute',
@@ -390,7 +435,7 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                               },
                             }}
                           >
-                            <CloseIcon />
+                            <CloseIcon sx={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)' }} />
                           </IconButton>
                         </Tooltip>
                       </motion.div>
@@ -402,7 +447,17 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                           onClick={() => handleStartEdit(todo)}
                           sx={{
                             position: 'relative',
+                            width: 'clamp(32px, 6vw, 40px)',
+                            height: 'clamp(32px, 6vw, 40px)',
                             color: 'primary.light',
+                            border: 'none',
+                            outline: 'none',
+                            '&:focus': {
+                              outline: 'none',
+                            },
+                            '&.Mui-focusVisible': {
+                              outline: 'none',
+                            },
                             '&::before': {
                               content: '""',
                               position: 'absolute',
@@ -426,7 +481,7 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                             },
                           }}
                         >
-                          <EditIcon />
+                          <EditIcon sx={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)' }} />
                         </IconButton>
                       </Tooltip>
                     </motion.div>
@@ -437,7 +492,17 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                         onClick={() => dispatch(removeTodo(todo.id))}
                         sx={{
                           position: 'relative',
+                          width: 'clamp(32px, 6vw, 40px)',
+                          height: 'clamp(32px, 6vw, 40px)',
                           color: 'error.light',
+                          border: 'none',
+                          outline: 'none',
+                          '&:focus': {
+                            outline: 'none',
+                          },
+                          '&.Mui-focusVisible': {
+                            outline: 'none',
+                          },
                           '&::before': {
                             content: '""',
                             position: 'absolute',
@@ -461,7 +526,7 @@ const TodoList: React.FC<TodoListProps> = ({ filter }) => {
                           },
                         }}
                       >
-                        <DeleteIcon />
+                        <DeleteIcon sx={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)' }} />
                       </IconButton>
                     </Tooltip>
                   </motion.div>

@@ -44,6 +44,8 @@ const TodoInput = () => {
               borderRadius: 2,
               backgroundColor: 'rgba(255, 255, 255, 0.8)',
               transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+              fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
+              height: 'clamp(40px, 8vw, 56px)',
               '& fieldset': {
                 transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
                 borderColor: 'rgba(0, 0, 0, 0.23)',
@@ -71,11 +73,13 @@ const TodoInput = () => {
             color="primary"
             disabled={!input.trim()}
             sx={{
-              width: 56,
-              height: 56,
+              width: 'clamp(40px, 8vw, 56px)',
+              height: 'clamp(40px, 8vw, 56px)',
               bgcolor: 'primary.main',
               color: 'white',
               borderRadius: 2,
+              border: 'none',
+              outline: 'none',
               transition: 'all 0.2s ease-in-out',
               '&:hover': {
                 bgcolor: 'primary.dark',
@@ -89,9 +93,15 @@ const TodoInput = () => {
                 bgcolor: 'rgba(0, 0, 0, 0.12)',
                 color: 'rgba(0, 0, 0, 0.26)',
               },
+              '&:focus': {
+                outline: 'none',
+              },
+              '&.Mui-focusVisible': {
+                outline: 'none',
+              },
             }}
           >
-            <AddIcon />
+            <AddIcon sx={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)' }} />
           </IconButton>
         </motion.div>
       </Box>

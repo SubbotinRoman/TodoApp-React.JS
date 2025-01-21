@@ -22,18 +22,20 @@ const TodoFilter = ({ filter, setFilter }: TodoFilterProps) => {
           sx={{
             gap: 1,
             '& .MuiToggleButton-root': {
-              border: '1px solid rgba(0, 0, 0, 0.12)',
+              border: 'none',
+              outline: 'none',
               borderRadius: '8px !important',
-              px: 3,
-              py: 1,
+              px: 'clamp(1rem, 3vw, 2rem)',
+              py: 'clamp(0.5rem, 1.5vw, 1rem)',
               color: 'text.secondary',
               textTransform: 'none',
-              fontSize: '0.9rem',
+              fontSize: 'clamp(0.75rem, 2vw, 0.875rem)',
               fontWeight: 500,
+              minWidth: 'clamp(80px, 20vw, 120px)',
               transition: 'all 0.2s ease-in-out',
               '&:hover': {
                 backgroundColor: 'rgba(33, 150, 243, 0.08)',
-                borderColor: 'primary.main',
+                boxShadow: '0px 0px 0px 2px rgba(33, 150, 243, 0.2)',
               },
               '&.Mui-selected': {
                 backgroundColor: 'primary.main',
@@ -41,6 +43,12 @@ const TodoFilter = ({ filter, setFilter }: TodoFilterProps) => {
                 '&:hover': {
                   backgroundColor: 'primary.dark',
                 },
+              },
+              '&:focus': {
+                outline: 'none',
+              },
+              '&.Mui-focusVisible': {
+                outline: 'none',
               },
             },
           }}
