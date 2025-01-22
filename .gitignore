@@ -1,4 +1,4 @@
-# Logs
+# Логи
 logs
 *.log
 npm-debug.log*
@@ -12,7 +12,11 @@ dist
 dist-ssr
 *.local
 
-# Editor directories and files
+# Папка с отчетами о покрытии кода тестами
+coverage
+coverage-ts
+
+# Папки и файлы редакторов кода
 .vscode/*
 !.vscode/extensions.json
 .idea

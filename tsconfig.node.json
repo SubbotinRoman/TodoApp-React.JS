@@ -1,22 +1,42 @@
+/**
+ * Конфигурация TypeScript для файлов сборки (tsconfig.node.json)
+ * 
+ * Назначение:
+ * - Настраивает компилятор для конфигурационных файлов
+ * - Определяет правила для Vite и других инструментов сборки
+ * - Обеспечивает поддержку новейших возможностей JavaScript
+ * 
+ * Основные настройки:
+ * - Современный JavaScript (ES2022)
+ * - Строгая типизация
+ * - Поддержка современного импорта/экспорта (import/export)
+ * 
+ * Особенности:
+ * - Оптимизирован для инструментов сборки
+ * - Использует последние возможности ES2023
+ * - Включает только конфигурационные файлы
+ */
+
 {
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2022",
-    "lib": ["ES2023"],
-    "module": "ESNext",
-    "skipLibCheck": true,
+    "incremental": true,                    // Включаем инкрементальную компиляцию
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",  // Кэш для ускорения сборки
+    "target": "ES2022",                     // Более новая версия JavaScript для инструментов
+    "lib": ["ES2023"],                      // Самые современные возможности JavaScript
+    "module": "ESNext",                     // Современная система модулей
+    "skipLibCheck": true,                   // Пропуск проверки типов в библиотеках
 
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
+    "moduleResolution": "bundler",          // Способ поиска модулей (для Vite)
+    "allowImportingTsExtensions": true,     // Разрешает импорт TypeScript файлов
+    "isolatedModules": true,                // Проверка совместимости с транспиляторами
+    "moduleDetection": "force",             // Принудительное определение модулей
+    "noEmit": true,                         // Не создавать JavaScript файлы (используется Vite)
 
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "strict": true,                        // Строгий режим проверки типов
+    "noUnusedLocals": true,                // Запрещает неиспользуемые переменные
+    "noUnusedParameters": true,            // Запрещает неиспользуемые параметры
+    "noFallthroughCasesInSwitch": true,    // Проверяет полноту switch конструкций
+    "noUncheckedSideEffectImports": true   // Проверяет побочные эффекты при импорте
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts"]            // Только файл конфигурации Vite
 }

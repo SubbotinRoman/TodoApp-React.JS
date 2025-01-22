@@ -46,12 +46,9 @@ git clone https://github.com/SubbotinRoman/TodoApp-React.JS.git
 cd TodoApp-React.JS
 ```
 
-3. Установите зависимости через npm:
+3. Установите зависимости и запустите проект:
 ```bash
-npm install
+npm i && npm run start
 ```
 
-4. Запустите локальный сервер:
-```bash
-npm run dev
-```
+Приложение будет доступно по адресу: http://localhost:5173

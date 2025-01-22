@@ -1,24 +1,44 @@
+/**
+ * Конфигурация TypeScript для приложения (tsconfig.app.json)
+ * 
+ * Назначение:
+ * - Настраивает компилятор TypeScript
+ * - Определяет правила проверки кода
+ * - Устанавливает поддерживаемые возможности языка
+ * 
+ * Основные настройки:
+ * - Современный JavaScript (ES2020)
+ * - Строгая типизация
+ * - Поддержка React JSX
+ * 
+ * Особенности:
+ * - Улучшенная проверка ошибок
+ * - Современные возможности модулей
+ * - Оптимизация сборки
+ */
+
 {
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
+    "incremental": true,                   // Включаем инкрементальную компиляцию
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",  // Кэш для ускорения сборки
+    "target": "ES2020",                    // Версия JavaScript, в которую компилируется код
+    "useDefineForClassFields": true,       // Современный способ определения полей классов
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],  // Доступные встроенные типы
+    "module": "ESNext",                    // Современная система модулей
+    "skipLibCheck": true,                  // Пропуск проверки типов в библиотеках
 
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
+    "moduleResolution": "bundler",         // Способ поиска модулей (для Vite)
+    "allowImportingTsExtensions": true,    // Разрешает импорт TypeScript файлов
+    "isolatedModules": true,              // Проверка совместимости с транспиляторами
+    "moduleDetection": "force",           // Принудительное определение модулей
+    "noEmit": true,                       // Не создавать JavaScript файлы (используется Vite)
+    "jsx": "react-jsx",                   // Поддержка JSX без импорта React
 
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "strict": true,                       // Строгий режим проверки типов
+    "noUnusedLocals": true,              // Запрещает неиспользуемые переменные
+    "noUnusedParameters": true,           // Запрещает неиспользуемые параметры
+    "noFallthroughCasesInSwitch": true,  // Проверяет полноту switch конструкций
+    "noUncheckedSideEffectImports": true // Проверяет побочные эффекты при импорте
   },
-  "include": ["src"]
+  "include": ["src"]                     // Папка с исходным кодом
 }

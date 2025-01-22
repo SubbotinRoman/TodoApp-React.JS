@@ -1,68 +1,98 @@
+/* 
+ * Глобальные стили приложения (index.css)
+ *
+ * Назначение:
+ * - Устанавливает базовые стили для HTML и body
+ * - Сбрасывает стандартные стили браузера
+ * - Определяет глобальные CSS-переменные
+ *
+ * Особенности:
+ * - Нормализует отображение во всех браузерах
+ * - Устанавливает правильную работу viewport
+ * - Предотвращает проблемы с прокруткой
+ *
+ * Применение:
+ * - Подключается в корневом index.tsx
+ * - Влияет на всё приложение целиком
+ * - Работает совместно с Material-UI
+ */
+
+/* Сброс стилей и базовые настройки */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* Определение системных шрифтов */
+  line-height: 1.5;                    /* Высота строки для лучшей читаемости */
+  font-weight: 400;                    /* Нормальная толщина шрифта */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Цветовая схема */
+  color-scheme: light dark;            /* Поддержка светлой и темной темы */
+  color: rgba(255, 255, 255, 0.87);    /* Цвет текста с небольшой прозрачностью */
+  background-color: #242424;           /* Темный фон по умолчанию */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  /* Сглаживание шрифтов */
+  font-synthesis: none;                /* Отключение синтетических стилей шрифта */
+  text-rendering: optimizeLegibility;  /* Оптимизация рендеринга текста */
+  -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для WebKit */
+  -moz-osx-font-smoothing: grayscale;  /* Сглаживание шрифтов для Firefox */
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
+/* Стили для светлой темы */
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #213547;                    /* Темный цвет текста для светлой темы */
+    background-color: #ffffff;         /* Белый фон для светлой темы */
   }
   a:hover {
-    color: #747bff;
+    color: #747bff;                    /* Цвет ссылки при наведении в светлой теме */
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9;         /* Светлый фон кнопок в светлой теме */
   }
+}
+
+/* Базовые стили для body */
+body {
+  margin: 0;                           /* Сброс внешних отступов */
+  display: flex;                       /* Флекс-контейнер для центрирования */
+  place-items: center;                 /* Центрирование элементов */
+  min-width: 320px;                    /* Минимальная ширина для мобильных */
+  min-height: 100vh;                   /* Минимальная высота на весь экран */
+}
+
+/* Стили для заголовков */
+h1 {
+  font-size: 3.2em;                    /* Крупный размер шрифта для заголовков */
+  line-height: 1.1;                    /* Уменьшенная высота строки для заголовков */
+}
+
+/* Стили для кнопок */
+button {
+  border-radius: 8px;                  /* Скругленные углы */
+  border: 1px solid transparent;       /* Прозрачная граница */
+  padding: 0.6em 1.2em;               /* Внутренние отступы */
+  font-size: 1em;                     /* Размер шрифта как у родителя */
+  font-weight: 500;                   /* Полужирный шрифт */
+  font-family: inherit;               /* Наследование шрифта */
+  background-color: #1a1a1a;        /* Темный фон кнопок */
+  cursor: pointer;                    /* Курсор-указатель */
+  transition: border-color 0.25s;     /* Анимация изменения цвета границы */
+}
+
+button:hover {
+  border-color: #646cff;              /* Цвет границы при наведении */
+}
+
+button:focus,
+button:focus-visible {
+  outline: none;                      /* Убираем стандартное выделение */
+}
+
+/* Стили для ссылок */
+a {
+  font-weight: 500;                   /* Полужирный шрифт для ссылок */
+  color: #646cff;                     /* Цвет ссылок */
+  text-decoration: inherit;           /* Убираем подчеркивание у ссылок */
+}
+
+a:hover {
+  color: #535bf2;                     /* Цвет ссылок при наведении */
 }

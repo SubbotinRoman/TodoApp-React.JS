@@ -1,13 +1,37 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+/**
+ * Конфигурация сборки проекта (vite.config.ts)
+ * 
+ * Назначение:
+ * - Настраивает инструмент сборки Vite
+ * - Определяет параметры разработки и production
+ * - Конфигурирует тестовое окружение
+ * 
+ * Основные настройки:
+ * - Поддержка React и JSX
+ * - Базовый путь для деплоя
+ * - Настройка тестов с Jest
+ * 
+ * Особенности:
+ * - Мгновенное отображение изменений в коде без обновления страницы
+ * - Оптимизированная production сборка
+ * - Интеграция с системой тестирования
+ */
+
+// Подключаем типы Vitest для конфигурации тестов
+/// <reference types="vitest" />              
+
+import { defineConfig } from 'vite';          // Функция для создания конфигурации Vite
+import react from '@vitejs/plugin-react';     // Плагин для поддержки React
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  base: '/TodoApp-React.JS/',
+  plugins: [react()],                         // Подключаем поддержку React и JSX
+  base: '/TodoApp-React.JS/',                 // Базовый путь для размещения приложения
+
+  // Настройки для тестирования
   test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: ['./src/setupTests.ts'],
+    globals: true,                            // Глобальные переменные в тестах
+    environment: 'jsdom',                     // Эмуляция браузерного окружения
+    setupFiles: ['./src/setupTests.ts'],      // Файл с настройками тестов
   },
-})
+});
